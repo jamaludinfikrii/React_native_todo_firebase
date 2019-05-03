@@ -6,7 +6,7 @@ class Header extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text>~Todo App~</Text>
+                <Text style={styles.text}>~Todo App~</Text>
             </View>
         )
     }

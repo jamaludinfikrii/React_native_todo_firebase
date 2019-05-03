@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
         justifyContent : 'center',
         alignItems : 'center',
         paddingVertical : 10
+    },
+    text : {
+        fontSize : 18,
+        color : 'white',
+        fontWeight : "bold"
     }
 })
 
