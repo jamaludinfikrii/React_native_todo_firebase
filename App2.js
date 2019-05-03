@@ -1,5 +1,5 @@
 import React from 'react'
-import { View , Text ,ScrollView, TextInput,TouchableHighlight ,StyleSheet} from 'react-native'
+import { View , Text ,ScrollView, TextInput,TouchableHighlight ,StyleSheet, Alert} from 'react-native'
 import firebase from 'firebase'
 import Header from './src/component/header'
 import { Fire } from './src/support/firebase'
@@ -38,6 +38,13 @@ class Todo extends React.Component{
 
 
     }
+
+    onBtnDeleteClick = (terserah) => {
+        Alert.alert('Delete Data','Are You Sure', 
+        [
+            {text : 'Yes',onPress : () => Fire.database().ref('todo/' + terserah).remove() },
+            {text : 'Cancel'}])
+    }
     render(){
         console.disableYellowBox = true
         return(
@@ -51,10 +58,10 @@ class Todo extends React.Component{
                                     <Text style={{color:'white',flex:1}}>
                                         {this.state.data[val].todo}
                                     </Text>
-                                    <TouchableHighlight style={bebas.buttonContent}>
+                                    <TouchableHighlight  style={bebas.buttonContent}>
                                         <Text style={{color:'white'}} >Edit</Text>
                                     </TouchableHighlight>
-                                    <TouchableHighlight style={bebas.buttonContent}>
+                                    <TouchableHighlight onPress={() => this.onBtnDeleteClick(val)} style={bebas.buttonContent}>
                                         <Text style={{color:'white'}} >Delete</Text>
                                     </TouchableHighlight>
                                 </View>

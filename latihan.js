@@ -13,7 +13,9 @@ var obj = {
 
 // console.log(obj.index.todo);
 
-obj['1']
+Object.keys(obj).map((val) => {
+    console.log(obj.[val].todo)
+})
 
 // for(var key in obj){
 //     console.log(obj[key].todo)
